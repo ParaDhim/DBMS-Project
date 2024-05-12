@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pharmacists Table</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Pharmacist ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Contact Number Type</th>
+          <th>Contact Number</th>
+          <th>Email Address</th>
+          <th>Email Type</th>
+          <th>Year of Graduation</th>
+          <th>Field of Study</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pharmacist in pharmacists %}
+        <tr>
+          <td>{{ pharmacist.pharmacistid }}</td>
+          <td>{{ pharmacist.pharmacists_name_fname }}</td>
+          <td>{{ pharmacist.pharmacists_name_mname }}</td>
+          <td>{{ pharmacist.pharmacists_name_lname }}</td>
+          <td>{{ pharmacist.contactnumber_type }}</td>
+          <td>{{ pharmacist.contactnumber_number }}</td>
+          <td>{{ pharmacist.email_address }}</td>
+          <td>{{ pharmacist.email_type }}</td>
+          <td>{{ pharmacist.qualification_yearofgraduation }}</td>
+          <td>{{ pharmacist.qualification_fieldofstudy }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

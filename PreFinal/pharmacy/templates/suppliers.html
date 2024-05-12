@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suppliers</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Supplier ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Contact Number Type</th>
+        <th>Contact Number</th>
+        <th>Email Address</th>
+        <th>Email Type</th>
+        <th>Address</th>
+        <th>Address Type</th>
+      </tr>
+      {% for supplier in suppliers %}
+      <tr>
+        <td>{{ supplier.supplierid }}</td>
+        <td>{{ supplier.supplier_name_fname }}</td>
+        <td>{{ supplier.supplier_name_mname }}</td>
+        <td>{{ supplier.supplier_name_lname }}</td>
+        <td>{{ supplier.contactnumber_type }}</td>
+        <td>{{ supplier.contactnumber_number }}</td>
+        <td>{{ supplier.email_address }}</td>
+        <td>{{ supplier.email_type }}</td>
+        <td>{{ supplier.address }}</td>
+        <td>{{ supplier.address_type }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

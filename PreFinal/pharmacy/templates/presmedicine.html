@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prescribed Medicines Table</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>PMID</th>
+          <th>Medicine ID</th>
+          <th>Prescription ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pm in presmedicine %}
+        <tr>
+          <td>{{ pm.pmid }}</td>
+          <td>{{ pm.medicineid }}</td>
+          <td>{{ pm.prescriptionid }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

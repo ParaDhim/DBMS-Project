@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="doctor_dashboard_styles.css" />
+    <style>
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 20px !important;
+        border: 2px solid lightgrey !important;
+      }
+
+      table th,
+      table td {
+        padding: 8px;
+        border: 1px solid lightgrey;
+      }
+
+      .info-label {
+        font-weight: bold;
+        background-color: #f5f5f5;
+        width: 20%;
+      }
+
+      .info-value {
+        width: 30%;
+      }
+
+      /* Additional formatting */
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+      /* New styles for div */
+      div {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        /* color: #4caf50; */
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Doctor Dashboard</h1>
+
+    <!-- Personal Information -->
+    <section class="personal-information">
+      <div>
+        <h2>Personal Information</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Doctor ID</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
+              <th>Specialisation</th>
+              <th>Contact Number</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="info-value">{{ doctor.doctorid }}</td>
+              <td class="info-value">{{ doctor.doctor_name_fname }}</td>
+              <td class="info-value">{{ doctor.doctor_name_mname }}</td>
+              <td class="info-value">{{ doctor.doctor_name_lname }}</td>
+              <td class="info-value">
+                {{ doctor.specialisation_description }}
+              </td>
+              <td class="info-value">{{ doctor.contactnumber_number }}</td>
+              <td class="info-value">{{ doctor.email_address }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Prescription Management -->
+    <section class="prescription-management">
+      <div>
+        <h2>Prescription Management</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Prescription ID</th>
+              <th>Patient ID</th>
+              <th>Medicine ID</th>
+              <th>Dosage</th>
+              <th>Duration (Days)</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for prescription in prescriptions %}
+            <tr>
+              <td class="info-value">{{ prescription.prescriptionid }}</td>
+              <td class="info-value">{{ prescription.patientid }}</td>
+              <td class="info-value">{{ prescription.medicineid }}</td>
+              <td class="info-value">{{ prescription.dosage }}</td>
+              <td class="info-value">{{ prescription.duration_days }}</td>
+              <td class="info-value">{{ prescription.startdate }}</td>
+              <td class="info-value">{{ prescription.enddate }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Appointment Management -->
+    <section class="appointment-management">
+      <div>
+        <h2>Appointment Management</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Appointment ID</th>
+              <th>Patient ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+            <tr>
+              <td class="info-value">{{ appointment.appointmentid }}</td>
+              <td class="info-value">{{ appointment.patientid }}</td>
+              <td class="info-value">{{ appointment.date }}</td>
+              <td class="info-value">{{ appointment.time }}</td>
+              <td class="info-value">{{ appointment.reason }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

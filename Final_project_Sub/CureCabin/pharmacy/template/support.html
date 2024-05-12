@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support</title>
+    <link rel="stylesheet" href="{% static 'css/support_styles.css' %}" />
+    <style>
+      /* Basic reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Typography */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+        text-align: center;
+      }
+
+      /* Dashboard layout */
+      section {
+        background-color: #fff;
+        padding: 2rem;
+        margin: 1rem 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s ease;
+      }
+
+      section:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.23);
+      }
+
+      /* FAQs */
+      details {
+        margin-bottom: 1rem;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      summary {
+        outline: none;
+      }
+
+      summary::-webkit-details-marker {
+        color: #007bff;
+      }
+
+      details > p {
+        padding-left: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Contact form styles */
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      label {
+        margin-top: 1rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border-radius: 0.3rem;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #32cd32;
+      }
+
+      textarea {
+        height: 8rem;
+      }
+
+      button {
+        margin-top: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        border: none;
+        background-color: #32cd32;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #2e8b57;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Support</h1>
+
+      <!-- FAQs -->
+      <section class="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+          <summary>1. How do I place an order?</summary>
+          <p>
+            To place an order, simply search for the medication you need, add it
+            to your cart, and proceed to checkout. You will need to provide your
+            prescription before completing your order.
+          </p>
+        </details>
+        <details>
+          <summary>2. Is it safe to buy medications online?</summary>
+          <p>
+            Yes, as long as you purchase from a licensed and reputable online
+            pharmacy like ours, it is safe to buy medications online. We follow
+            strict guidelines to ensure the safety and quality of our products.
+          </p>
+        </details>
+        <details>
+          <summary>3. Can I track my order?</summary>
+          <p>
+            Yes, after placing your order, you will receive a confirmation email
+            with your order number and tracking information. You can use this to
+            track your order on our website or the courier's website.
+          </p>
+        </details>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="contact-form">
+        <h2>Contact Us</h2>
+        <form action="" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

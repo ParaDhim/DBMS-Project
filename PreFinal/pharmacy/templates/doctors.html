@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctors</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Specialisation</th>
+          <th>contactnumber_type</th>
+          <th>contactnumber_number</th>
+          <th>email_type</th>
+          <th>email_address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in doctors %}
+        <tr>
+          <td>{{ row.doctorid }}</td>
+          <td>{{ row.doctor_name_fname }}</td>
+          <td>{{ row.doctor_name_mname }}</td>
+          <td>{{ row.doctor_name_lname }}</td>
+          <td>{{ row.specialisation_description }}</td>
+          <td>{{ row.contactnumber_type }}</td>
+          <td>{{ row.contactnumber_number }}</td>
+          <td>{{ row.email_type }}</td>
+          <td>{{ row.email_address }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

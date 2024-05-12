@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescription</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Prescription ID</th>
+          <th>Doctor ID</th>
+          <th>Patient ID</th>
+          <th>Medicine ID</th>
+          <th>Dosage</th>
+          <th>Duration (Days)</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Date</th>
+          <th>Date Written</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pres in prescription %}
+        <tr>
+          <td>{{ pres.prescriptionid }}</td>
+          <td>{{ pres.doctorid.doctorid }}</td>
+          <td>{{ pres.patientid.patientid }}</td>
+          <td>{{ pres.medicineid.medicineid }}</td>
+          <td>{{ pres.dosage }}</td>
+          <td>{{ pres.duration_days }}</td>
+          <td>{{ pres.startdate }}</td>
+          <td>{{ pres.enddate }}</td>
+          <td>{{ pres.date }}</td>
+          <td>{{ pres.datewritten }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

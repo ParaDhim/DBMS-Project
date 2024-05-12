@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine Detail</title>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-3 mb-3">Medicine Details</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td>{{ medicine.medicineid }}</td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{ medicine.name }}</td>
+          </tr>
+          <tr>
+            <th>Composition</th>
+            <td>{{ medicine.composition }}</td>
+          </tr>
+          <tr>
+            <th>Ingredient</th>
+            <td>{{ medicine.ingredient }}</td>
+          </tr>
+          <tr>
+            <th>Type</th>
+            <td>{{ medicine.type }}</td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td>{{ medicine.price }}</td>
+          </tr>
+          <tr>
+            <th>Cost</th>
+            <td>{{ medicine.cost }}</td>
+          </tr>
+          <tr>
+            <th>Currency</th>
+            <td>{{ medicine.currency }}</td>
+          </tr>
+          <tr>
+            <th>Supplier</th>
+            <td>{{ medicine.supplierid.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

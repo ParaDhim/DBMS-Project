@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Medicine ID</th>
+          <th>Medicine Name</th>
+          <th>Medicine Composition</th>
+          <th>Medicine Ingredient</th>
+          <th>Medicine type</th>
+          <th>Medicine price</th>
+          <th>Medicine cost</th>
+          <th>Medicine currency</th>
+          <th>supplierid</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in medicines %}
+        <tr>
+          <td>{{ row.medicineid }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.composition }}</td>
+          <td>{{ row.ingredient }}</td>
+          <td>{{ row.type }}</td>
+          <td>{{ row.price }}</td>
+          <td>{{ row.cost }}</td>
+          <td>{{ row.currency }}</td>
+          <td>{{ row.supplierid }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

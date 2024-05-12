@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CureCabin</title>
+    <!-- Add your CSS files here -->
+
+    <link rel="stylesheet" href="{% static 'css/home_styles.css' %}" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <h1>CureCabin</h1>
+      </div>
+      <nav>
+        <ul>
+          <!-- <li><a href="#">Home</a></li> -->
+          <li><a href="transactions">Transactions</a></li>
+          <li><a href="map">Branches</a></li>
+          <li><a href="support">Support</a></li>
+          <li><a href="login_signup">Enter</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search {% if medicines %}has-results{% endif %}">
+      <form action="{% url 'search' %}" method="get">
+        <input type="text" name="q" placeholder="Search for medicines..." />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <section>
+      {% if medicines %}
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Composition</th>
+            <th>Ingredient</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Cost</th>
+            <th>Currency</th>
+            <th>Supplier ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in medicines %}
+          <tr>
+            <td>{{ row.medicineid }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.composition }}</td>
+            <td>{{ row.ingredient }}</td>
+            <td>{{ row.type }}</td>
+            <td>{{ row.price }}</td>
+            <td>{{ row.cost }}</td>
+            <td>{{ row.currency }}</td>
+            <td>{{ row.supplierid }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% else %} {% if query %}
+      <p>No results found for "{{ query }}".</p>
+      {% endif %} {% endif %}
+    </section>
+    <!-- Featured Products -->
+    <section class="featured-products {% if medicines %}has-results{% endif %}">
+      <section><h2>Featured Products</h2></section>
+      <div class="product-list">
+        <div class="product-item">
+          <img
+            src="{% static 'img/medicine1.jpg' %}"
+            alt="Medicine 1"
+            class="product-image"
+          />
+          <h3 class="product-name">First Aid</h3>
+        </div>
+        <div class="product-item">
+          <img
+            src="{% static 'img/medicine2.jpg' %}"
+            alt="Medicine 2"
+            class="product-image"
+          />
+          <h3 class="product-name">Injection</h3>
+        </div>
+        <div class="product-item">
+          <img
+            src="{% static 'img/medicine3.jpg' %}"
+            alt="Medicine 3"
+            class="product-image"
+          />
+          <h3 class="product-name">Syrup</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotions and Discounts -->
+    <section class="promotions {% if medicines %}has-results{% endif %}">
+      <h2>Promotions and Discounts</h2>
+      <div class="promotion-list">
+        <div class="promotion-item">
+          <img
+            src="{% static 'img/promotion1.jpg' %}"
+            alt="Promotion 1"
+            class="promotion-image"
+          />
+          <div class="promotion-details">
+            <h3 class="promotion-name">Get 10% off on all medicines</h3>
+            <p class="promotion-description">
+              Use code SAVE10 at checkout to get 10% off on all medicines.
+              Hurry, limited time offer!
+            </p>
+          </div>
+        </div>
+        <div class="promotion-item">
+          <img
+            src="{% static 'img/promotion2.jpg' %}"
+            alt="Promotion 2"
+            class="promotion-image"
+          />
+          <div class="promotion-details">
+            <h3 class="promotion-name">Free shipping on orders above $50</h3>
+            <p class="promotion-description">
+              Get free shipping on all orders above $50. No code required.
+              Limited time offer!
+            </p>
+          </div>
+        </div>
+        <div class="promotion-item">
+          <img
+            src="{% static 'img/promotion3.jpg' %}"
+            alt="Promotion 3"
+            class="promotion-image"
+          />
+          <div class="promotion-details">
+            <h3 class="promotion-name">Buy 2, Get 1 Free</h3>
+            <p class="promotion-description">
+              Buy any 2 medicines and get 1 medicine for free. No code required.
+              Limited time offer!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>
+          Sidhant Kumar Agrawal : 2021495 <br />
+          Paras Dhiman : 2021482
+        </p>
+      </div>
+    </footer>
+
+    <!-- Add your JavaScript files here -->
+    <script src="{% static 'js/home_scripts.js' %}"></script>
+  </body>
+</html>

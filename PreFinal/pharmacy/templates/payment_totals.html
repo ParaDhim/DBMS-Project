@@ -1,0 +1,16 @@
+<h1>Payment Totals</h1>
+<!-- Create a table for class branches -->
+<table>
+  <tr>
+    <th>Payments Method</th>
+    <th>Amount sum</th>
+  </tr>
+
+  <!-- Loop through the list of branches -->
+  {% for bra in payment_totals %}
+  <tr>
+    <td>{{ bra.paymentmethod }}</td>
+    <td>{{ bra.total_amount }}</td>
+  </tr>
+  {% endfor %}
+</table>

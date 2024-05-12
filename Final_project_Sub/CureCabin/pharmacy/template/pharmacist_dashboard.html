@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharmacist Dashboard</title>
+    <link rel="stylesheet" href="pharmacist_dashboard_styles.css" />
+    <style>
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 20px !important;
+        border: 2px solid lightgrey !important;
+      }
+
+      table th,
+      table td {
+        padding: 8px;
+        border: 1px solid lightgrey;
+      }
+
+      .info-label {
+        font-weight: bold;
+        background-color: #f5f5f5;
+        width: 20%;
+      }
+
+      .info-value {
+        width: 30%;
+      }
+
+      /* Additional formatting */
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+      /* New styles for div */
+      div {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        /* color: #4caf50; */
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pharmacist Dashboard</h1>
+
+    <!-- Personal Information -->
+    <section class="personal-information">
+      <h2>Personal Information</h2>
+      <table>
+        <tr>
+          <th>Pharmacist ID</th>
+          <td>{{ pharmacist.pharmacistid }}</td>
+        </tr>
+        <tr>
+          <th>First Name</th>
+          <td>{{ pharmacist.pharmacists_name_fname }}</td>
+        </tr>
+        <tr>
+          <th>Middle Name</th>
+          <td>{{pharmacist.pharmacists_name_mname }}</td>
+        </tr>
+        <tr>
+          <th>Last Name</th>
+          <td>{{pharmacist.pharmacists_name_lname }}</td>
+        </tr>
+        <tr>
+          <th>Contact Number Type</th>
+          <td>{{ pharmacist.contactnumber_type }}</td>
+        </tr>
+        <tr>
+          <th>Contact Number</th>
+          <td>{{ pharmacist.contactnumber_number }}</td>
+        </tr>
+        <tr>
+          <th>Email Address</th>
+          <td>{{ pharmacist.email_address }}</td>
+        </tr>
+        <tr>
+          <th>Qualification</th>
+          <td>{{ pharmacist.qualification_fieldofstudy }}</td>
+        </tr>
+        <tr>
+          <th>Graduation</th>
+          <td>{{ pharmacist.qualification_yearofgraduation }}</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Stock Management -->
+    <section class="stock-management">
+      <div>
+        <h2>Stock Management</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Stock ID</th>
+              <th>Medicine</th>
+              <th>Branch</th>
+              <th>Quantity</th>
+              <th>Threshold</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stock in stocks %}
+            <tr>
+              <td class="info-value">{{ stock.stockid }}</td>
+              <td class="info-value">{{ stock.medicineid }}</td>
+              <td class="info-value">{{ stock.branchid }}</td>
+              <td class="info-value">{{ stock.quantity }}</td>
+              <td class="info-value">{{ stock.threshold }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Order Management -->
+    <section class="order-management">
+      <div>
+        <h2>Order Management</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Patient ID</th>
+              <th>Medicine</th>
+              <th>Pharmacist</th>
+              <th>Quantity</th>
+              <th>Date</th>
+              <th>Delivery Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+            <tr>
+              <td class="info-value">{{ order.orderid }}</td>
+              <td class="info-value">{{ order.patientid }}</td>
+              <td class="info-value">{{ order.medicineid }}</td>
+              <td class="info-value">{{ order.pharmacistid }}</td>
+              <td class="info-value">{{ order.quantity }}</td>
+              <td class="info-value">{{ order.date }}</td>
+              <td class="info-value">{{ order.deliverystatus }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Supplier Information -->
+    <section class="supplier-information">
+      <div>
+        <h2>Supplier Information</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Supplier ID</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+              <th>Email</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for supplier in suppliers %}
+            <tr>
+              <td class="info-value">{{ supplier.supplierid }}</td>
+              <td class="info-value">{{ supplier.supplier_name_fname }}</td>
+              <td class="info-value">{{ supplier.supplier_name_mname }}</td>
+              <td class="info-value">{{ supplier.supplier_name_lname }}</td>
+              <td class="info-value">{{ supplier.contactnumber_number }}</td>
+              <td class="info-value">{{ supplier.email_address }}</td>
+              <td class="info-value">{{ supplier.address }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

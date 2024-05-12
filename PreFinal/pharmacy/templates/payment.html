@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payments</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Payment ID</th>
+          <th>Order ID</th>
+          <th>Amount</th>
+          <th>Payment Method</th>
+          <th>Payment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pay in payment %}
+        <tr>
+          <td>{{ pay.paymentid }}</td>
+          <td>{{ pay.orderid }}</td>
+          <td>{{ pay.amount }}</td>
+          <td>{{ pay.paymentmethod }}</td>
+          <td>{{ pay.paymentdate }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

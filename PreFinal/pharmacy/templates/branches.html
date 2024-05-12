@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Branches</title>
+  </head>
+  <body>
+    <h1>branches</h1>
+    <!-- Create a table for class branches -->
+    <table>
+      <tr>
+        <th>BranchId</th>
+        <th>street_number</th>
+        <th>street_name</th>
+        <th>apt_number</th>
+        <th>city</th>
+        <th>zipCode</th>
+        <th>state</th>
+        <th>country</th>
+        <th>contactnumber</th>
+        <th>Email</th>
+      </tr>
+
+      <!-- Loop through the list of branches -->
+      {% for bra in branches %}
+      <tr>
+        <td>{{ bra.branchid }}</td>
+        <td>{{ bra.street_number }}</td>
+        <td>{{ bra.street_name }}</td>
+        <td>{{ bra.apt_number }}</td>
+        <td>{{ bra.city }}</td>
+        <td>{{ bra.zipcode }}</td>
+        <td>{{ bra.state }}</td>
+        <td>{{ bra.country }}</td>
+        <td>{{ bra.contactnumber }}</td>
+        <td>{{ bra.email }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

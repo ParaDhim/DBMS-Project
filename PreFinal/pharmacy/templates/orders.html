@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>patientid</th>
+          <th>medicineid</th>
+          <th>pharmacistid</th>
+          <th>Order quantity</th>
+          <th>Order date</th>
+          <th>deliverystatus</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in orders %}
+        <tr>
+          <td>{{ row.orderid }}</td>
+          <td>{{ row.patientid }}</td>
+          <td>{{ row.medicineid }}</td>
+          <td>{{ row.pharmacistid }}</td>
+          <td>{{ row.quantity }}</td>
+          <td>{{ row.date }}</td>
+          <td>{{ row.deliverystatus }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

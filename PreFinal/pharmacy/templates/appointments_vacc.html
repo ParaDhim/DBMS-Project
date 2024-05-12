@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appointments_vacc</title>
+  </head>
+  <body>
+    <!-- Create a table for class Appointment -->
+    <table>
+      <tr>
+        <th>Appointment ID</th>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+        <th>Appointment Reason</th>
+        <th>Appointment Doctor</th>
+        <th>Appointment Patient</th>
+      </tr>
+      <!-- Loop through the list of appointments -->
+      {% for app in appointments_vacc %}
+      <tr>
+        <td>{{ app.appointmentid }}</td>
+        <td>{{ app.date }}</td>
+        <td>{{ app.time }}</td>
+        <td>{{ app.reason }}</td>
+        <td>{{ app.doctorid }}</td>
+        <td>{{ app.patientid }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

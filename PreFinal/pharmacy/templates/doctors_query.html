@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doctors_query</title>
+  </head>
+  <body>
+    <h1>Projection of Doctors</h1>
+    <!-- Create a table for class branches -->
+    <table>
+      <tr>
+        <th>First name</th>
+        <th>Second Name</th>
+      </tr>
+
+      <!-- Loop through the list of branches -->
+      {% for bra in doctors_query %}
+      <tr>
+        <td>{{ bra.doctor_name_fname }}</td>
+        <td>{{ bra.doctor_name_lname }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Policy Providers Table</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Policy Provider ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Contact Number</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Patient ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for provider in policyprovider %}
+        <tr>
+          <td>{{ provider.policyproviderid }}</td>
+          <td>{{ provider.policyprovider_name_fname }}</td>
+          <td>{{ provider.policyprovider_name_mname }}</td>
+          <td>{{ provider.policyprovider_name_lname }}</td>
+          <td>{{ provider.contactnumber }}</td>
+          <td>{{ provider.email }}</td>
+          <td>{{ provider.address }}</td>
+          <td>{{ provider.patientid.patientid }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

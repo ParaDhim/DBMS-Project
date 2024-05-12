@@ -1,0 +1,337 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard_styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 20px !important;
+        border: 2px solid lightgrey !important;
+      }
+
+      table th,
+      table td {
+        padding: 8px;
+        border: 1px solid lightgrey;
+      }
+
+      .info-label {
+        font-weight: bold;
+        background-color: #f5f5f5;
+        width: 20%;
+      }
+
+      .info-value {
+        width: 30%;
+      }
+
+      /* Additional formatting */
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4caf50;
+        color: white;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .button-container a {
+        margin-right: 10px;
+        text-decoration: none;
+      }
+
+      .button-container a:last-child {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Patient Dashboard</h1>
+    <div class="button-container">
+      <a
+        href="{% url 'browse_medicines' patient_id=patient.patientid %}"
+        class="btn btn-primary"
+        >Browse Medicines</a
+      >
+      <a
+        href="{% url 'view_cart' patient_id=patient.patientid %}"
+        class="btn btn-secondary"
+        >View Cart</a
+      >
+    </div>
+
+    <!-- Personal Information -->
+    <section class="personal-information">
+      <div class="patient-info">
+        <h2>Personal Information</h2>
+        <table>
+          <tr>
+            <td class="info-label">First Name:</td>
+            <td class="info-value">{{ patient.name_fname }}</td>
+            <td class="info-label">Middle Name:</td>
+            <td class="info-value">{{ patient.name_mname }}</td>
+            <td class="info-label">Last Name:</td>
+            <td class="info-value">{{ patient.name_lname }}</td>
+          </tr>
+          <tr>
+            <td class="info-label">Street Number:</td>
+            <td class="info-value">{{ patient.address_street_number }}</td>
+            <td class="info-label">Street Name:</td>
+            <td class="info-value">{{ patient.address_street_name }}</td>
+            <td class="info-label">Apt Number:</td>
+            <td class="info-value">{{ patient.address_apt_number }}</td>
+          </tr>
+          <tr>
+            <td class="info-label">City:</td>
+            <td class="info-value">{{ patient.address_city }}</td>
+            <td class="info-label">Zip Code:</td>
+            <td class="info-value">{{ patient.address_zipcode }}</td>
+            <td class="info-label">State:</td>
+            <td class="info-value">{{ patient.address_state }}</td>
+          </tr>
+          <tr>
+            <td class="info-label">Country:</td>
+            <td class="info-value">{{ patient.address_country }}</td>
+            <td class="info-label">DOB:</td>
+            <td class="info-value">{{ patient.dob }}</td>
+            <td class="info-label">Gender:</td>
+            <td class="info-value">{{ patient.gender }}</td>
+          </tr>
+          <tr>
+            <td class="info-label">Contact Number Type:</td>
+            <td class="info-value">{{ patient.contactnumber_type }}</td>
+            <td class="info-label">Contact Number:</td>
+            <td class="info-value">{{ patient.contactnumber_number }}</td>
+            <td class="info-label">Email Type:</td>
+            <td class="info-value">{{ patient.email_type }}</td>
+          </tr>
+          <tr>
+            <td class="info-label">Email Address:</td>
+            <td class="info-value">{{ patient.email_address }}</td>
+            <td class="info-label">Age:</td>
+            <td class="info-value">{{ patient.age }}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Medical History -->
+    <section class="medical-history">
+      <div class="patient-medical-history">
+        <h2>Medical History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for history in medical_history %}
+            <tr>
+              <td class="info-value">{{ history.medicalhistid }}</td>
+              <td class="info-value">{{ history.description }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Policy Provider Information -->
+    <section class="policy-provider">
+      <div class="patient-policy-providers">
+        <h2>Policy Providers</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+              <th>Email</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for provider in policy_provider %}
+            <tr>
+              <td class="info-value">{{ provider.policyproviderid }}</td>
+              <td class="info-value">
+                {{ provider.policyprovider_name_fname }}
+              </td>
+              <td class="info-value">
+                {{ provider.policyprovider_name_mname }}
+              </td>
+              <td class="info-value">
+                {{ provider.policyprovider_name_lname }}
+              </td>
+              <td class="info-value">{{ provider.contactnumber }}</td>
+              <td class="info-value">{{ provider.email }}</td>
+              <td class="info-value">{{ provider.address }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Appointments -->
+    <!-- Appointments -->
+    <section class="appointments">
+      <div class="patient-appointments">
+        <h2>Appointments</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Appointment ID</th>
+              <th>Doctor ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+            <tr>
+              <td class="info-value">{{ appointment.appointmentid }}</td>
+              <td class="info-value">{{ appointment.doctorid }}</td>
+              <td class="info-value">{{ appointment.date }}</td>
+              <td class="info-value">{{ appointment.time }}</td>
+              <td class="info-value">{{ appointment.reason }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Prescription History -->
+    <!-- Prescriptions -->
+    <section class="prescriptions">
+      <div class="patient-prescriptions">
+        <h2>Prescriptions History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Prescription ID</th>
+              <th>Doctor ID</th>
+              <th>Medicine ID</th>
+              <th>Dosage</th>
+              <th>Duration (Days)</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Date</th>
+              <th>Date Written</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for prescription in prescriptions %}
+            <tr>
+              <td class="info-value">{{ prescription.prescriptionid }}</td>
+              <td class="info-value">{{ prescription.doctorid }}</td>
+              <td class="info-value">{{ prescription.medicineid }}</td>
+              <td class="info-value">{{ prescription.dosage }}</td>
+              <td class="info-value">{{ prescription.duration_days }}</td>
+              <td class="info-value">{{ prescription.startdate }}</td>
+              <td class="info-value">{{ prescription.enddate }}</td>
+              <td class="info-value">{{ prescription.date }}</td>
+              <td class="info-value">{{ prescription.datewritten }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Orders -->
+    <section class="orders">
+      <div class="patient-orders">
+        <h2>Orders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Medicine ID</th>
+              <th>Pharmacist ID</th>
+              <th>Quantity</th>
+              <th>Date</th>
+              <th>Delivery Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+            <tr>
+              <td class="info-value">{{ order.orderid }}</td>
+              <td class="info-value">{{ order.medicineid }}</td>
+              <td class="info-value">{{ order.pharmacistid }}</td>
+              <td class="info-value">{{ order.quantity }}</td>
+              <td class="info-value">{{ order.date }}</td>
+              <td class="info-value">{{ order.deliverystatus }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Payments -->
+    <section class="payments">
+      <div class="patient-payments">
+        <h2>Payments</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Payment ID</th>
+              <th>Order ID</th>
+              <th>Amount</th>
+              <th>Payment Method</th>
+              <th>Payment Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for payment in patient_payments %}
+            <tr>
+              <td class="info-value">{{ payment.paymentid }}</td>
+              <td class="info-value">{{ payment.orderid }}</td>
+              <td class="info-value">{{ payment.amount }}</td>
+              <td class="info-value">{{ payment.paymentmethod }}</td>
+              <td class="info-value">{{ payment.paymentdate }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

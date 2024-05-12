@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-3 mb-3">Your Cart</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.MedicineID.name }}</td>
+            <td>{{ item.Quantity }}</td>
+            <td>{{ item.Price }}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td colspan="2">Total Price:</td>
+            <td>{{ total_price }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a
+        href="{% url 'place_order' patient_id=patient.patientid %}"
+        class="btn btn-primary"
+        >Place Order</a
+      >
+    </div>
+  </body>
+</html>

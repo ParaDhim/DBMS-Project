@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number of Prescriptions</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor First Name</th>
+          <th>Doctor Middle Name</th>
+          <th>Doctor Last Name</th>
+          <th>Number of prescription</th>
+          <th>Total Dosage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in num_pres %}
+        <tr>
+          <td>{{ row.0 }}</td>
+          <td>{{ row.1 }}</td>
+          <td>{{ row.2 }}</td>
+          <td>{{ row.3 }}</td>
+          <td>{{ row.4 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

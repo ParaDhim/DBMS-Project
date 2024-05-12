@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Stock ID</th>
+          <th>Medicine ID</th>
+          <th>Branch ID</th>
+          <th>Quantity</th>
+          <th>Threshold</th>
+          <th>Pharmacist ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for stm in stock %}
+        <tr>
+          <td>{{ stm.0 }}</td>
+          <td>{{ stm.medicineid }}</td>
+          <td>{{ stm.branchid }}</td>
+          <td>{{ stm.quantity }}</td>
+          <td>{{ stm.threshold }}</td>
+          <td>{{ stm.pharmacistid }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
